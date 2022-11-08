@@ -6,6 +6,7 @@ const updateUserService = require("../services/users/updateUserService");
 
 const getUserController = async (req, res) => {
     try {
+        
         const users = await getUserService();
         res.json(users)
     } catch (error) {
@@ -16,6 +17,7 @@ const getUserController = async (req, res) => {
 
 const getUserByUsernameController = async (req, res) => {
     try {
+        console.log('**ENTRE AL CONTROLLER**');
         const users = await getUserByUsernameService(req);
         res.json(users)
     } catch (error) {
@@ -26,6 +28,7 @@ const getUserByUsernameController = async (req, res) => {
 
 const addUserController = async (req, res) => {
     try {
+        console.log('En controller ', req.occupation);
         const addUser = await addUserService(req)
         res.status(201).json({message: `Creado el usuario ${addUser.username}`})
     } catch (error) {

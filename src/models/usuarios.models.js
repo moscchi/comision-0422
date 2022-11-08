@@ -10,6 +10,15 @@ const UsuarioSchema = new Schema({
         type: String,
         required: [true, "La contraseña es obligatoria"]
     },
+    name: {
+        type: String
+    },
+    age: {
+        type: Number
+    },
+    occupation: {
+        type: Array
+    },
     created_at: {type: Date, default: new Date()}
 })
 
