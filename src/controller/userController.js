@@ -17,13 +17,12 @@ const getUserController = async (req, res) => {
 
 const getUserByUsernameController = async (req, res) => {
     try {
-        console.log('**ENTRE AL CONTROLLER**');
         const users = await getUserByUsernameService(req);
         res.json(users)
-    } catch (error) {
+     } catch (error) {
         console.log(error);
-        res.json({message: error.message})
-    }
+        res.status(error.cause).json({message: error.message})
+    } 
 }
 
 const addUserController = async (req, res) => {
