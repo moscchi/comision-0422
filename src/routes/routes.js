@@ -8,9 +8,10 @@ const {
 } = require("../controller/userController");
 const validator = require("../utils/validator");
 const { body } = require("express-validator");
+const validarToken = require("../utils/validarToken");
 const router = express.Router();
 
-router.get("/user", getUserController);
+router.get("/user", validarToken,getUserController);
 router.get("/user/:username", getUserByUsernameController);
 router.put("/user/:username", updateUserController);
 router.post(
